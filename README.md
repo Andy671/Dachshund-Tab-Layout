@@ -31,7 +31,47 @@ Add the dependency
 ```
 
 # Usage
-//TODO
+DachshundTabLayout is a subclass of TabLayout, so usage is pretty similar. The most of the original methods should work without any problems. See sample and source code for more info.
+
+Add DachshundTabLayout to xml (after the Toolbar in the AppBarLayout), if you have TabLayout simply replace it: 
+```xml
+ <android.support.design.widget.AppBarLayout
+ ...
+	<android.support.v7.widget.Toolbar           
+	.../>
+	<com.kekstudio.dachshundtablayout.DachshundTabLayout
+		android:id="@+id/tab_layout"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"/>
+```
+
+Setup it with a ViewPager:
+```java
+	DachshundTabLayout tabLayout = (DachshundTabLayout) findViewById(R.id.tab_layout);
+	tabLayout.setupWithViewPager(yourViewPager);
+```
+
+If you want to change animated indicator:
+```java
+	//AvailableAnimatedIndicator - change it with available animated indicator (see table below)
+
+	AvailableAnimatedIndicator indicator = new AvailableAnimatedIndicator(tabLayout);
+	tabLayout.setAnimatedIndicator(indicator);
+```
+
+## Available Animated Indicators
+| Indicator         	| Custom behavior                         |
+|--------------------- 	|--------------------------------|
+| DachshundIndicator 	| |
+| PointMoveIndicator	| setInterpolator(TimeInterpolator interpolator)|
+| LineMoveIndicator 	| |
+
+## XML Attributes
+| Attribute        	| Type                | Default     |
+| ----------------------|:-------------------:| :-----------|
+| ddIndicatorHeight   	| dimension           | 6dp 	    |	
+| ddIndicatorColor    	| color               | Color.WHITE |
+| ddAnimatedIndicator 	| enum [dachshund, pointMove, lineMove] | dachshund |
 
 ## Contribution
 - Feel free to fork the repo, make pull requests or fix existing bug
