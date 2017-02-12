@@ -9,6 +9,15 @@ Boosted Android Tab Layout with custom animated indicators including "Dachshund"
 ## Sample
 ![](http://i.giphy.com/1VVYHwT4OFf6U.gif)
 
+## Available Animated Indicators
+| Indicator         	|  Example | Custom behavior |
+|--------------------- 	|--------------------------------| ----- |
+| DachshundIndicator 	| ![](http://i.giphy.com/115nZIzHqsDpcI.gif) | |
+| PointMoveIndicator	|![](http://i.giphy.com/yK9y4NcPH7wNa.gif)  |setInterpolator(TimeInterpolator interpolator) |
+| LineMoveIndicator 	| ![](http://i.giphy.com/rzvsTmlUOod0I.gif) | |
+
+###
+
 ## Installation
 
 ### Step 1
@@ -51,20 +60,14 @@ Setup it with a ViewPager:
 	tabLayout.setupWithViewPager(yourViewPager);
 ```
 
-If you want to change animated indicator:
+If you want to change animated indicator (see **Available Animated Indicators**):
 ```java
-	//AvailableAnimatedIndicator - change it with available animated indicator (see table below)
+	//AvailableAnimatedIndicator - change it with available animated indicator
 
 	AvailableAnimatedIndicator indicator = new AvailableAnimatedIndicator(tabLayout);
 	tabLayout.setAnimatedIndicator(indicator);
 ```
 
-## Available Animated Indicators
-| Indicator         	| Custom behavior                         |
-|--------------------- 	|--------------------------------|
-| DachshundIndicator 	| |
-| PointMoveIndicator	| setInterpolator(TimeInterpolator interpolator)|
-| LineMoveIndicator 	| |
 
 ## XML Attributes
 | Attribute        	| Type                | Default     |
