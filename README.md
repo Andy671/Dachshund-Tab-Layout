@@ -2,7 +2,7 @@
 [![](https://img.shields.io/badge/minSDK-15-brightgreen.svg)](https://developer.android.com/training/basics/supporting-devices/platforms.html)
 [![](https://jitpack.io/v/Andy671/Dachshund-Tab-Layout.svg)](https://jitpack.io/#Andy671/Dachshund-Tab-Layout)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-
+# ![Logo](https://raw.githubusercontent.com/Andy671/Dachshund-Tab-Layout/master/dachshund_logo.png)
 ## Introduction
 Boosted Android Tab Layout with custom animated indicators including "Dachshund" animation inspired by [this](https://material.uplabs.com/posts/tab-interaction). 
 
