@@ -14,7 +14,7 @@ import com.kekstudio.dachshundtablayout.DachshundTabLayout;
  * Created by Andy671
  */
 
-public class PointMoveIndicator implements BaseAnimatedIndicator, ValueAnimator.AnimatorUpdateListener{
+public class PointMoveIndicator implements AnimatedIndicatorInterface, ValueAnimator.AnimatorUpdateListener{
 
     private Paint paint;
     private Rect rect;

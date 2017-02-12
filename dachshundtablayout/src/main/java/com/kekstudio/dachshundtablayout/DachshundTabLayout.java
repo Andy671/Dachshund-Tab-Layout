@@ -12,7 +12,7 @@ import android.util.AttributeSet;
 import android.widget.LinearLayout;
 
 import com.kekstudio.dachshundtablayout.indicators.AnimatedIndicatorType;
-import com.kekstudio.dachshundtablayout.indicators.BaseAnimatedIndicator;
+import com.kekstudio.dachshundtablayout.indicators.AnimatedIndicatorInterface;
 import com.kekstudio.dachshundtablayout.indicators.DachshundIndicator;
 import com.kekstudio.dachshundtablayout.indicators.LineMoveIndicator;
 import com.kekstudio.dachshundtablayout.indicators.PointMoveIndicator;
@@ -33,7 +33,7 @@ public class DachshundTabLayout extends TabLayout implements ViewPager.OnPageCha
     private ViewPager viewPager;
     private LinearLayout tabStrip;
 
-    private BaseAnimatedIndicator animatedIndicator;
+    private AnimatedIndicatorInterface animatedIndicator;
 
     int startXLeft, endXLeft, startXCenter, endXCenter, startXRight, endXRight;
 
@@ -74,7 +74,7 @@ public class DachshundTabLayout extends TabLayout implements ViewPager.OnPageCha
         a.recycle();
     }
 
-    public void setAnimatedIndicator(BaseAnimatedIndicator animatedIndicator) {
+    public void setAnimatedIndicator(AnimatedIndicatorInterface animatedIndicator) {
         this.animatedIndicator = animatedIndicator;
 
         animatedIndicator.setSelectedTabIndicatorColor(indicatorColor);
@@ -222,7 +222,7 @@ public class DachshundTabLayout extends TabLayout implements ViewPager.OnPageCha
             return 0;
     }
 
-    public BaseAnimatedIndicator getBaseAnimatedIndicator() {
+    public AnimatedIndicatorInterface getAnimatedIndicator() {
         return animatedIndicator;
     }
 

@@ -7,7 +7,7 @@ import android.support.annotation.ColorInt;
  * Created by Andy671
  */
 
-public interface BaseAnimatedIndicator {
+public interface AnimatedIndicatorInterface {
 
     long DEFAULT_DURATION = 500;
 
