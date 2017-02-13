@@ -19,6 +19,7 @@ public class LineFadeIndicator implements AnimatedIndicatorInterface, ValueAnima
     private RectF rectF;
 
     private int height;
+    private int edgeRadius;
 
     private ValueAnimator valueAnimator;
 
@@ -45,6 +46,14 @@ public class LineFadeIndicator implements AnimatedIndicatorInterface, ValueAnima
 
         startXLeft = (int) dachshundTabLayout.getChildXLeft(dachshundTabLayout.getCurrentPosition());
         startXRight = (int) dachshundTabLayout.getChildXRight(dachshundTabLayout.getCurrentPosition());
+
+        edgeRadius = -1;
+    }
+
+    public void setEdgeRadius(int edgeRadius){
+        this.edgeRadius = edgeRadius;
+
+        dachshundTabLayout.invalidate();
     }
 
     @Override
@@ -83,6 +92,9 @@ public class LineFadeIndicator implements AnimatedIndicatorInterface, ValueAnima
     @Override
     public void setSelectedTabIndicatorHeight(int height) {
         this.height = height;
+
+        if(edgeRadius == -1)
+            edgeRadius = height;
     }
 
     @Override
@@ -93,13 +105,13 @@ public class LineFadeIndicator implements AnimatedIndicatorInterface, ValueAnima
         rectF.bottom = dachshundTabLayout.getHeight();
 
         paint.setColor(startColor);
-        canvas.drawRoundRect(rectF, height, height, paint);
+        canvas.drawRoundRect(rectF, edgeRadius, edgeRadius, paint);
 
         rectF.left =  endXLeft + height/2;
         rectF.right = endXRight - height/2;
 
         paint.setColor(endColor);
-        canvas.drawRoundRect(rectF, height, height, paint);
+        canvas.drawRoundRect(rectF, edgeRadius, edgeRadius, paint);
     }
 
     @Override

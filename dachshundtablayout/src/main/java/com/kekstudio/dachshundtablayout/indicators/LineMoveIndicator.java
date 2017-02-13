@@ -21,6 +21,7 @@ public class LineMoveIndicator implements AnimatedIndicatorInterface, ValueAnima
     private Rect rect;
 
     private int height;
+    private int edgeRadius;
     private int leftX, rightX;
 
     private ValueAnimator valueAnimatorLeft, valueAnimatorRight;
@@ -53,6 +54,14 @@ public class LineMoveIndicator implements AnimatedIndicatorInterface, ValueAnima
 
         leftX = (int) dachshundTabLayout.getChildXLeft(dachshundTabLayout.getCurrentPosition());
         rightX = (int) dachshundTabLayout.getChildXRight(dachshundTabLayout.getCurrentPosition());
+
+        edgeRadius = -1;
+    }
+
+    public void setEdgeRadius(int edgeRadius){
+        this.edgeRadius = edgeRadius;
+
+        dachshundTabLayout.invalidate();
     }
 
     @Override
@@ -90,6 +99,9 @@ public class LineMoveIndicator implements AnimatedIndicatorInterface, ValueAnima
     @Override
     public void setSelectedTabIndicatorHeight(int height) {
         this.height = height;
+
+        if(edgeRadius == -1)
+            edgeRadius = height;
     }
 
     @Override
@@ -99,7 +111,7 @@ public class LineMoveIndicator implements AnimatedIndicatorInterface, ValueAnima
         rectF.right = rightX - height/2;
         rectF.bottom = dachshundTabLayout.getHeight();
 
-        canvas.drawRoundRect(rectF, height, height, paint);
+        canvas.drawRoundRect(rectF, edgeRadius, edgeRadius, paint);
     }
 
     @Override
