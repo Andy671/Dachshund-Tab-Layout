@@ -7,5 +7,6 @@ package com.kekstudio.dachshundtablayout.indicators;
 public enum AnimatedIndicatorType {
     DACHSHUND,
     POINT_MOVE,
-    LINE_MOVE
+    LINE_MOVE,
+    POINT_FADE
 }

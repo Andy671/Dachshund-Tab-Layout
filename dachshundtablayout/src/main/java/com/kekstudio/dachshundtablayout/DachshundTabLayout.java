@@ -15,6 +15,7 @@ import com.kekstudio.dachshundtablayout.indicators.AnimatedIndicatorType;
 import com.kekstudio.dachshundtablayout.indicators.AnimatedIndicatorInterface;
 import com.kekstudio.dachshundtablayout.indicators.DachshundIndicator;
 import com.kekstudio.dachshundtablayout.indicators.LineMoveIndicator;
+import com.kekstudio.dachshundtablayout.indicators.PointFadeIndicator;
 import com.kekstudio.dachshundtablayout.indicators.PointMoveIndicator;
 
 /**
@@ -68,6 +69,9 @@ public class DachshundTabLayout extends TabLayout implements ViewPager.OnPageCha
                 break;
             case LINE_MOVE:
                 setAnimatedIndicator(new LineMoveIndicator(this));
+                break;
+            case POINT_FADE:
+                setAnimatedIndicator(new PointFadeIndicator(this));
                 break;
         }
 
