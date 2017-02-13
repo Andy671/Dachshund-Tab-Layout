@@ -9,6 +9,7 @@
             <enum name="pointMove" value="1" />
             <enum name="lineMove" value="2" />
             <enum name="pointFade" value="3" />
+            <enum name="lineFade" value="4" />
         </attr>
     </declare-styleable>
 
