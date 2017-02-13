@@ -61,6 +61,16 @@ public class PointMoveIndicator implements AnimatedIndicatorInterface, ValueAnim
     }
 
     @Override
+    public void setSelectedTabIndicatorColor(@ColorInt int color) {
+        paint.setColor(color);
+    }
+
+    @Override
+    public void setSelectedTabIndicatorHeight(int height) {
+        this.height = height;
+    }
+
+    @Override
     public void setIntValues(int startXLeft, int endXLeft,
                              int startXCenter, int endXCenter,
                              int startXRight, int endXRight) {
@@ -70,16 +80,6 @@ public class PointMoveIndicator implements AnimatedIndicatorInterface, ValueAnim
     @Override
     public void setCurrentPlayTime(long currentPlayTime) {
         valueAnimator.setCurrentPlayTime(currentPlayTime);
-    }
-
-    @Override
-    public void setSelectedTabIndicatorColor(@ColorInt int color) {
-        paint.setColor(color);
-    }
-
-    @Override
-    public void setSelectedTabIndicatorHeight(int height) {
-        this.height = height;
     }
 
     @Override

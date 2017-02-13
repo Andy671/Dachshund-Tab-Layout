@@ -13,8 +13,11 @@ import android.view.ViewGroup;
 import android.view.animation.AccelerateInterpolator;
 
 import com.kekstudio.dachshundtablayout.DachshundTabLayout;
+import com.kekstudio.dachshundtablayout.HelperUtils;
 import com.kekstudio.dachshundtablayout.indicators.DachshundIndicator;
+import com.kekstudio.dachshundtablayout.indicators.LineFadeIndicator;
 import com.kekstudio.dachshundtablayout.indicators.LineMoveIndicator;
+import com.kekstudio.dachshundtablayout.indicators.PointFadeIndicator;
 import com.kekstudio.dachshundtablayout.indicators.PointMoveIndicator;
 
 
@@ -55,6 +58,18 @@ public class SampleActivity extends AppCompatActivity {
 
     public void onClickLineMove(View view){
         tabLayout.setAnimatedIndicator(new LineMoveIndicator(tabLayout));
+    }
+
+    public void onClickPointFade(View view){
+        tabLayout.setAnimatedIndicator(new PointFadeIndicator(tabLayout));
+    }
+
+    public void onClickLineFade(View view){
+        LineFadeIndicator lineFadeIndicator = new LineFadeIndicator(tabLayout);
+        tabLayout.setAnimatedIndicator(lineFadeIndicator);
+
+        lineFadeIndicator.setSelectedTabIndicatorHeight(HelperUtils.dpToPx(2));
+        lineFadeIndicator.setEdgeRadius(0);
     }
 
     public class PagerAdapter extends FragmentStatePagerAdapter {

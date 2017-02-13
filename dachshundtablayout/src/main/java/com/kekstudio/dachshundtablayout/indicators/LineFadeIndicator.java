@@ -68,21 +68,6 @@ public class LineFadeIndicator implements AnimatedIndicatorInterface, ValueAnima
     }
 
     @Override
-    public void setIntValues(int startXLeft, int endXLeft,
-                             int startXCenter, int endXCenter,
-                             int startXRight, int endXRight) {
-        this.startXLeft = startXLeft;
-        this.startXRight = startXRight;
-        this.endXLeft = endXLeft;
-        this.endXRight = endXRight;
-    }
-
-    @Override
-    public void setCurrentPlayTime(long currentPlayTime) {
-        valueAnimator.setCurrentPlayTime(currentPlayTime);
-    }
-
-    @Override
     public void setSelectedTabIndicatorColor(@ColorInt int color) {
         this.originColor = color;
         startColor = color;
@@ -95,6 +80,21 @@ public class LineFadeIndicator implements AnimatedIndicatorInterface, ValueAnima
 
         if(edgeRadius == -1)
             edgeRadius = height;
+    }
+
+    @Override
+    public void setIntValues(int startXLeft, int endXLeft,
+                             int startXCenter, int endXCenter,
+                             int startXRight, int endXRight) {
+        this.startXLeft = startXLeft;
+        this.startXRight = startXRight;
+        this.endXLeft = endXLeft;
+        this.endXRight = endXRight;
+    }
+
+    @Override
+    public void setCurrentPlayTime(long currentPlayTime) {
+        valueAnimator.setCurrentPlayTime(currentPlayTime);
     }
 
     @Override

@@ -78,6 +78,19 @@ public class LineMoveIndicator implements AnimatedIndicatorInterface, ValueAnima
     }
 
     @Override
+    public void setSelectedTabIndicatorColor(@ColorInt int color) {
+        paint.setColor(color);
+    }
+
+    @Override
+    public void setSelectedTabIndicatorHeight(int height) {
+        this.height = height;
+
+        if(edgeRadius == -1)
+            edgeRadius = height;
+    }
+
+    @Override
     public void setIntValues(int startXLeft, int endXLeft,
                              int startXCenter, int endXCenter,
                              int startXRight, int endXRight){
@@ -89,19 +102,6 @@ public class LineMoveIndicator implements AnimatedIndicatorInterface, ValueAnima
     public void setCurrentPlayTime(long currentPlayTime) {
         valueAnimatorLeft.setCurrentPlayTime(currentPlayTime);
         valueAnimatorRight.setCurrentPlayTime(currentPlayTime);
-    }
-
-    @Override
-    public void setSelectedTabIndicatorColor(@ColorInt int color) {
-        paint.setColor(color);
-    }
-
-    @Override
-    public void setSelectedTabIndicatorHeight(int height) {
-        this.height = height;
-
-        if(edgeRadius == -1)
-            edgeRadius = height;
     }
 
     @Override

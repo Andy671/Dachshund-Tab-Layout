@@ -21,9 +21,11 @@
 
             <com.kekstudio.dachshundtablayout.DachshundTabLayout
                 android:id="@+id/tab_layout"
-                custom:ddAnimatedIndicator="dachshund"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                custom:ddAnimatedIndicator="dachshund"
+                custom:ddIndicatorHeight="6dp"
+                custom:ddIndicatorColor="@android:color/white"
                 custom:tabMode="fixed"/>
 
         </android.support.design.widget.AppBarLayout>

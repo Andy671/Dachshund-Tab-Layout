@@ -54,6 +54,18 @@ public class PointFadeIndicator implements AnimatedIndicatorInterface, ValueAnim
     }
 
     @Override
+    public void setSelectedTabIndicatorColor(@ColorInt int color) {
+        this.originColor = color;
+        startColor = color;
+        endColor = Color.TRANSPARENT;
+    }
+
+    @Override
+    public void setSelectedTabIndicatorHeight(int height) {
+        this.height = height;
+    }
+
+    @Override
     public void setIntValues(int startXLeft, int endXLeft,
                              int startXCenter, int endXCenter,
                              int startXRight, int endXRight) {
@@ -64,18 +76,6 @@ public class PointFadeIndicator implements AnimatedIndicatorInterface, ValueAnim
     @Override
     public void setCurrentPlayTime(long currentPlayTime) {
         valueAnimator.setCurrentPlayTime(currentPlayTime);
-    }
-
-    @Override
-    public void setSelectedTabIndicatorColor(@ColorInt int color) {
-        this.originColor = color;
-        startColor = color;
-        endColor = Color.TRANSPARENT;
-    }
-
-    @Override
-    public void setSelectedTabIndicatorHeight(int height) {
-        this.height = height;
     }
 
     @Override
