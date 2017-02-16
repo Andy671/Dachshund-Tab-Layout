@@ -13,8 +13,10 @@ Boosted Android Tab Layout with custom animated indicators including "Dachshund"
 | Indicator         	|  Example | Custom behavior |
 |--------------------- 	|--------------------------------| ----- |
 | DachshundIndicator 	| ![](http://i.giphy.com/115nZIzHqsDpcI.gif) | |
-| PointMoveIndicator	|![](http://i.giphy.com/yK9y4NcPH7wNa.gif)  |setInterpolator(TimeInterpolator interpolator) |
-| LineMoveIndicator 	| ![](http://i.giphy.com/rzvsTmlUOod0I.gif) | |
+| PointMoveIndicator	|![](http://i.giphy.com/yK9y4NcPH7wNa.gif)  | setInterpolator(TimeInterpolator interpolator) |
+| LineMoveIndicator 	| ![](http://i.giphy.com/rzvsTmlUOod0I.gif) | setEdgeRadius(int edgeRadius)|
+| PointFadeIndicator	| ![](http://i.giphy.com/nQZYOyfYH7gJy.gif)  | |
+| LineFadeIndicator 	| ![](http://i.giphy.com/PHUmWmrM0O7YI.gif) | setEdgeRadius(int edgeRadius)|
 
 ###
 
