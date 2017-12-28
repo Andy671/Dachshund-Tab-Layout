@@ -135,5 +135,3 @@ public class CustomIndicator implements AnimatedIndicatorInterface, ValueAnimato
 - Feel free to fork the repo, make pull requests or fix existing bug
 - Feel free to open issues if you find some bug or unexpected behaviour
 
-## Buy me a cup of coffee
-> Bitcoin Wallet: 15BuUMAW2jUdStPVkoNPt85P8tJnAy5vD4
