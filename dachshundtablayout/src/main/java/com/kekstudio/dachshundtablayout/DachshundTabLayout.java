@@ -7,8 +7,12 @@ import android.graphics.Color;
 import android.support.annotation.ColorInt;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
+import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.kekstudio.dachshundtablayout.indicators.AnimatedIndicatorType;
@@ -32,10 +36,15 @@ public class DachshundTabLayout extends TabLayout implements ViewPager.OnPageCha
 
     private int currentPosition;
 
+    private boolean centerAlign;
+
     private ViewPager viewPager;
     private LinearLayout tabStrip;
 
+    private AnimatedIndicatorType animatedIndicatorType;
+
     private AnimatedIndicatorInterface animatedIndicator;
+
 
     int startXLeft, endXLeft, startXCenter, endXCenter, startXRight, endXRight;
 
@@ -58,9 +67,27 @@ public class DachshundTabLayout extends TabLayout implements ViewPager.OnPageCha
 
         this.indicatorHeight = a.getDimensionPixelSize(R.styleable.DachshundTabLayout_ddIndicatorHeight, HelperUtils.dpToPx(DEFAULT_HEIGHT_DP));
         this.indicatorColor = a.getColor(R.styleable.DachshundTabLayout_ddIndicatorColor, Color.WHITE);
+        this.centerAlign = a.getBoolean(R.styleable.DachshundTabLayout_ddCenterAlign, false);
+        this.animatedIndicatorType = AnimatedIndicatorType.values()[a.getInt(R.styleable.DachshundTabLayout_ddAnimatedIndicator, 0)];
 
-        AnimatedIndicatorType animatedIndicatorType = AnimatedIndicatorType.values()[a.getInt(R.styleable.DachshundTabLayout_ddAnimatedIndicator, 0)];
+        a.recycle();
+    }
 
+    @Override
+    protected void onLayout(boolean changed, int l, int t, int r, int b) {
+        super.onLayout(changed, l, t, r, b);
+
+        if(centerAlign) {
+            View firstTab = ((ViewGroup) getChildAt(0)).getChildAt(0);
+            View lastTab = ((ViewGroup) getChildAt(0)).getChildAt(((ViewGroup) getChildAt(0)).getChildCount() - 1);
+            ViewCompat.setPaddingRelative(getChildAt(0), (getWidth() / 2) - (firstTab.getWidth() / 2), 0, (getWidth() / 2) - (lastTab.getWidth() / 2), 0);
+        }
+
+        setupAnimatedIndicator();
+
+    }
+
+    private void setupAnimatedIndicator(){
         switch (animatedIndicatorType) {
             case DACHSHUND:
                 setAnimatedIndicator(new DachshundIndicator(this));
@@ -78,8 +105,6 @@ public class DachshundTabLayout extends TabLayout implements ViewPager.OnPageCha
                 setAnimatedIndicator(new LineFadeIndicator(this));
                 break;
         }
-
-        a.recycle();
     }
 
     public void setAnimatedIndicator(AnimatedIndicatorInterface animatedIndicator) {
@@ -110,6 +135,12 @@ public class DachshundTabLayout extends TabLayout implements ViewPager.OnPageCha
             invalidate();
         }
 
+    }
+
+    public void setCenterAlign(boolean centerAlign){
+        this.centerAlign = centerAlign;
+
+        requestLayout();
     }
 
     @Override

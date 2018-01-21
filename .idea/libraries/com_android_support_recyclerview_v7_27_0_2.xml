@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="com.android.support:recyclerview-v7-27.0.2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/dachshundtablayout/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/27.0.2/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/dachshundtablayout/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/27.0.2/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support/recyclerview-v7/27.0.2/76f4751bc97ce7fa2362dc5a38b39089066a2c99/recyclerview-v7-27.0.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

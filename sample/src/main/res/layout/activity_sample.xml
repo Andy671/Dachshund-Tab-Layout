@@ -26,7 +26,8 @@
                 custom:ddAnimatedIndicator="dachshund"
                 custom:ddIndicatorHeight="6dp"
                 custom:ddIndicatorColor="@android:color/white"
-                custom:tabMode="fixed"/>
+                custom:ddCenterAlign="true"
+                custom:tabMode="scrollable"/>
 
         </android.support.design.widget.AppBarLayout>
 
