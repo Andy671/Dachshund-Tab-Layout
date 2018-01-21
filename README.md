@@ -72,7 +72,7 @@ If you want to change animated indicator (see **Available Animated Indicators**)
 	tabLayout.setAnimatedIndicator(indicator);
 ```
 
-##Center align
+## Center align
 In **v0.3.2** I added **ddCenterAlign** parameter. You can use it when you want to center the tabs in **scrollable** tabMode.
 Working behavior from [Stackoverflow](https://stackoverflow.com/questions/33191794/android-tablayout-with-active-tab-always-at-center-just-like-in-play-newsstand) question.
 ```xml
