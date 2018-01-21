@@ -39,7 +39,7 @@ Add the JitPack repository to your build file
 Add the dependency
 ```gradle
 	dependencies {
-		compile 'com.github.Andy671:Dachshund-Tab-Layout:v0.3.1'
+		compile 'com.github.Andy671:Dachshund-Tab-Layout:v0.3.2'
 	}
 ```
 
@@ -71,6 +71,17 @@ If you want to change animated indicator (see **Available Animated Indicators**)
 	AvailableAnimatedIndicator indicator = new AvailableAnimatedIndicator(tabLayout);
 	tabLayout.setAnimatedIndicator(indicator);
 ```
+
+##Center align
+In **v0.3.2** I added **ddCenterAlign** parameter. You can use it when you want to center the tabs in **scrollable** tabMode.
+Working behavior from [Stackoverflow](https://stackoverflow.com/questions/33191794/android-tablayout-with-active-tab-always-at-center-just-like-in-play-newsstand) question.
+```xml
+<com.kekstudio.dachshundtablayout.DachshundTabLayout
+		...
+		custom:tabMode="scrollable"
+		custom:ddCenterAlign="true"/>
+```
+
 ## Creating custom AnimatedIndicator
 If you want to create your own custom AnimatedIndicator - you can implement AnimatedIndicatorInterface and if you want to use animators - AnimatorUpdateListener (See JavaDoc of AnimatedIndicatorInterface for more info):
 ```java
