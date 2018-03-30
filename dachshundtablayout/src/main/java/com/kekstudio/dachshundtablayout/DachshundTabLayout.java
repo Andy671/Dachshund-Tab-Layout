@@ -248,23 +248,28 @@ public class DachshundTabLayout extends TabLayout implements ViewPager.OnPageCha
     }
 
     public float getChildXLeft(int position) {
-        if (mTabStrip.getChildAt(position) != null)
-            return (mTabStrip.getChildAt(position).getX());
+        View tab = mTabStrip.getChildAt(position);
+        if (tab != null)
+            return tab.getX();
         else
             return 0;
     }
 
     public float getChildXCenter(int position) {
-        if (mTabStrip.getChildAt(position) != null)
-            return (mTabStrip.getChildAt(position).getX() + mTabStrip.getChildAt(position).getWidth() / 2);
-        else
+        View tab = mTabStrip.getChildAt(position);
+        if (tab != null) {
+            int width = tab.getWidth() == 0 ? tab.getMeasuredWidth() : tab.getWidth();
+            return tab.getX() + width / 2;
+        } else
             return 0;
     }
 
     public float getChildXRight(int position) {
-        if (mTabStrip.getChildAt(position) != null)
-            return (mTabStrip.getChildAt(position).getX() + mTabStrip.getChildAt(position).getWidth());
-        else
+        View tab = mTabStrip.getChildAt(position);
+        if (tab != null) {
+            int width = tab.getWidth() == 0 ? tab.getMeasuredWidth() : tab.getWidth();
+            return tab.getX() + width;
+        } else
             return 0;
     }
 
