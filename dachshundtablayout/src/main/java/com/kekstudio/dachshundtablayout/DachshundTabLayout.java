@@ -42,7 +42,8 @@ public class DachshundTabLayout extends TabLayout implements ViewPager.OnPageCha
     private AnimatedIndicatorType mAnimatedIndicatorType;
     private AnimatedIndicatorInterface mAnimatedIndicator;
 
-    int mStartXLeft, mEndXLeft, mStartXCenter, mEndXCenter, mStartXRight, mEndXRight;
+    private int mTempPosition, mTempPositionOffsetPixels;
+    private float mTempPositionOffset;
 
     public DachshundTabLayout(Context context) {
         this(context, null);
@@ -59,14 +60,14 @@ public class DachshundTabLayout extends TabLayout implements ViewPager.OnPageCha
 
         mTabStrip = (LinearLayout) super.getChildAt(0);
 
-        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.DachshundTabLayout);
+        TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.DachshundTabLayout);
 
-        this.mIndicatorHeight = a.getDimensionPixelSize(R.styleable.DachshundTabLayout_ddIndicatorHeight, HelperUtils.dpToPx(DEFAULT_HEIGHT_DP));
-        this.mIndicatorColor = a.getColor(R.styleable.DachshundTabLayout_ddIndicatorColor, Color.WHITE);
-        this.mCenterAlign = a.getBoolean(R.styleable.DachshundTabLayout_ddCenterAlign, false);
-        this.mAnimatedIndicatorType = AnimatedIndicatorType.values()[a.getInt(R.styleable.DachshundTabLayout_ddAnimatedIndicator, 0)];
+        this.mIndicatorHeight = ta.getDimensionPixelSize(R.styleable.DachshundTabLayout_ddIndicatorHeight, HelperUtils.dpToPx(DEFAULT_HEIGHT_DP));
+        this.mIndicatorColor = ta.getColor(R.styleable.DachshundTabLayout_ddIndicatorColor, Color.WHITE);
+        this.mCenterAlign = ta.getBoolean(R.styleable.DachshundTabLayout_ddCenterAlign, false);
+        this.mAnimatedIndicatorType = AnimatedIndicatorType.values()[ta.getInt(R.styleable.DachshundTabLayout_ddAnimatedIndicator, 0)];
 
-        a.recycle();
+        ta.recycle();
     }
 
     @Override
@@ -76,11 +77,18 @@ public class DachshundTabLayout extends TabLayout implements ViewPager.OnPageCha
         if (mCenterAlign) {
             View firstTab = ((ViewGroup) getChildAt(0)).getChildAt(0);
             View lastTab = ((ViewGroup) getChildAt(0)).getChildAt(((ViewGroup) getChildAt(0)).getChildCount() - 1);
-            ViewCompat.setPaddingRelative(getChildAt(0), (getWidth() / 2) - (firstTab.getWidth() / 2), 0, (getWidth() / 2) - (lastTab.getWidth() / 2), 0);
+            ViewCompat.setPaddingRelative(getChildAt(0),
+                    (getWidth() / 2) - (firstTab.getWidth() / 2),
+                    0,
+                    (getWidth() / 2) - (lastTab.getWidth() / 2),
+                    0);
         }
 
-        setupAnimatedIndicator();
+        if (mAnimatedIndicator == null) {
+            setupAnimatedIndicator();
+        }
 
+        onPageScrolled(mTempPosition, mTempPositionOffset, mTempPositionOffsetPixels);
     }
 
     private void setupAnimatedIndicator() {
@@ -171,10 +179,15 @@ public class DachshundTabLayout extends TabLayout implements ViewPager.OnPageCha
     @Override
     public void onPageScrolled(final int position, final float positionOffset,
                                final int positionOffsetPixels) {
+        this.mTempPosition = position;
+        this.mTempPositionOffset = positionOffset;
+        this.mTempPositionOffsetPixels = positionOffsetPixels;
 
         if ((position > mCurrentPosition) || (position + 1 < mCurrentPosition)) {
             mCurrentPosition = position;
         }
+
+        int mStartXLeft, mStartXCenter, mStartXRight, mEndXLeft, mEndXCenter, mEndXRight;
 
         if (position != mCurrentPosition) {
 
